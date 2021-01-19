@@ -43,10 +43,10 @@ else:
 #문자열 연산
 #파이썬은 문자열 연산 지원
 
-#튜플 자료형
+# 튜플 자료형
 # 리스트와 유사하지만 한 번 선언된 값을 변경할 수 없음
-#소괄호 ()를 사용
-#리스트 보다 메모리를 효율적으로 사용
+# 소괄호 ()를 사용
+# 리스트 보다 메모리를 효율적으로 사용
 tuple =(1,2,3,4,5,6,7,8)
 print(tuple[1])
 
@@ -60,7 +60,13 @@ print(data)
 if '사과' in data :
    print("there is apple")
 
+#자료형은 dict_key
 key_list=data.keys()
+#리스트로 변환
+key_list=list(key_list)
+print(type(key_list))
+
+#자료형은 dict_values
 value_list=data.values()
 print(key_list)
 print(value_list)
