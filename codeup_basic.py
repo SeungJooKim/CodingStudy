@@ -4,6 +4,7 @@ print("hi hello\n")
 print("nice to meet you\r")
 print("1\\21")
 
+
 #윈도우 운영체제의 파일 경로 출력
 path="C:\download\hello.cpp"
 #c:\download\hello.cpp 사용자가 입력
@@ -134,8 +135,92 @@ a = input("정수 2개를 입력하세요 : ").split()
 print(int(a[0])/int(a[1]))
 
 a,b=map(int,input().split())
-print(a/b)
+print(a//b)
+#c언어는 /가 몫
 
 #1043 정수 2개를 입력받아 나눈 나머지 출력하기
-print(a//b)
-#c언어는 나머지가 %임
+print(a%b)
+
+
+#1049 기초 비교 연산
+a,b = map(int, input("두 정수를 입력하세요 : ").split())
+
+if a>b :
+   print("1")
+else:
+   print("0")
+
+#1050 기초 비교 연산
+a,b = map(int, input("두 정수를 입력하세요 : ").split())
+if a==b :
+  print("1")
+else:
+  print("0")
+
+#1051 기초 비교 연산
+a,b = map(int, input("두 정수를 입력하세요 : ").split())
+if a <=b :
+   print("1")
+else :
+   print("0")
+
+#1052
+a,b = map(int, input("두 정수를 입력하세요 : ").split())
+if a!=b:
+  print("1")
+else:
+  print("0")
+
+# 1053 논리연산
+ans= int(input())
+if ans ==1:
+  print(0)
+else :
+  print(1)
+
+#1054 논리연산
+a,b= map(int,input("참 거짓 중 두 개를 입력하세요").split())
+if a==1 and b==1 :
+  print("true")
+
+#1055 논리연산
+a,b= map(int,input("참 거짓 중 두 개를 입력하세요").split())
+if a==1 or b==1 :
+  print("true")
+
+
+#1059 비트단위논리연산 not
+a = int(input("정수를 입력하세요"))
+print(~a)
+
+#1060 비트단위논리연산 and
+a,b = map(int,input("두 개의 정수를 입력하세요").split())
+print(a & b)
+
+#1061 비트단위논리연산 or
+a,b =map(int,input("두 개의 정수를 입력하세요").split())
+print(a|b)
+
+#1062 비트단위논리연산 xor
+#xor 배타적 논리합 => 서로 다를 때 1
+# 그래픽 처리에 효과적으로 사용 ex. 두 장의 이미지가 겹쳤을 때 서로 다른 부분만 처리가능
+a,b =map(int,input("두 개의 정수를 입력하세요").split())
+print(a^b)
+
+#1063 삼항 연산
+a,b =map(int,input("두 개의 정수를 입력하세요").split())
+print(a if a>b else b)
+
+#1064 삼항 연산
+a,b,c=map(int,input("세 개의 정수를 입력하세요").split())
+x = (a if (a<b) else b)
+print(x if x<c else c)
+
+#1065 짝수만 출력
+a,b,c=map(int,input("세 개의 정수를 입력하세요").split())
+if a%2==0:
+  print(a)
+if b%2==0 :
+  print(b)
+if c%2==0:
+  print(c)
