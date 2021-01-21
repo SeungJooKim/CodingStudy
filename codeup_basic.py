@@ -271,7 +271,7 @@ while (a != 0):
     print(a)
     a = a - 1
 
-# 1097
+# 1097 십자뒤집기
 baduk = []
 for i in range(20):
     baduk.append([])
@@ -303,7 +303,7 @@ for i in range(1, 20):
         print(baduk[i][j], end='')
     print()
 
-# 1098
+# 1098 설탕뽑기
 h, w = map(int, input().split())
 sugar = [[0] * (w + 1) for i in range(h + 1)]
 # 좌표 입력이 1부터 시작이므로 +1
@@ -325,7 +325,7 @@ for i in range(1, h + 1):
         print(sugar[i][j], end='')
     print()
 
-# 1099
+# 1099 미로찾기
 maze = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
         [1, 0, 0, 1, 1, 1, 0, 0, 0, 1],
