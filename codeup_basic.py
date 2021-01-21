@@ -271,3 +271,122 @@ while (a != 0):
     print(a)
     a = a - 1
 
+# 1097
+baduk = []
+for i in range(20):
+    baduk.append([])
+    for j in range(20):
+        baduk[i].append(0)
+
+for i in range(19):
+    a = input().split()
+    for j in range(19):
+        baduk[i + 1][j + 1] = int(a[i])
+
+n = int(input("개수를 입력하세요: "))
+
+for i in range(n):
+    x, y = input().split()
+    for j in range(1, 20):
+        if baduk[int(x)][j] == 0:
+            baduk[int(x)][j] = 1
+        else:
+            baduk[int(x)][j] = 1
+
+        if baduk[j][int(y)] == 0:
+            baduk[j][int(y)] = 1
+        else:
+            baduk[j][int(y)] = 0
+
+for i in range(1, 20):
+    for j in range(1, 20):
+        print(baduk[i][j], end='')
+    print()
+
+# 1098
+h, w = map(int, input().split())
+sugar = [[0] * (w + 1) for i in range(h + 1)]
+# 좌표 입력이 1부터 시작이므로 +1
+n = int(input())
+
+for k in range(n):  # 입력 개수 만큼
+    l, d, x, y = map(int, input().split())
+    if (x > h or y > w):
+        print("좌표 범위 이탈\n")
+        break
+    for i in range(l):
+        if d == 0:
+            sugar[x][y + i] = 1
+        elif d == 1:
+            sugar[x + i][y] = 1
+
+for i in range(1, h + 1):
+    for j in range(1, w + 1):
+        print(sugar[i][j], end='')
+    print()
+
+# 1099
+maze = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0, 1, 2, 1, 0, 1],
+        [1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], ]
+
+m = 1
+n = 1
+
+while (maze[m][n] != 2):
+    maze[m][n] = 9
+    if (maze[m][n + 1] == 1 and maze[m + 1][n] == 1) or (m == 9 and n == 9):
+        break
+    elif (maze[m][n + 1] == 0):
+        n = n + 1
+    elif (maze[m][n + 1] == 1):
+        m = m + 1
+maze[m][n] = 9
+
+for i in range(len(maze)):
+    for j in range(len(maze)):
+        print(maze[i][j], end='')
+    print()
+
+# 1099-2
+maze = [[0] * 10 for i in range(10)]
+for i in range(10):
+    templine = list(map(int, input().split()))
+    for j in range(10):
+        maze[i][j] = templine[j]
+
+i = 1
+j = 1
+
+while True:
+
+    if i >= 9 or j >= 9:
+        break
+    elif maze[i][j] == 2:  # eat
+        maze[i][j] = 9
+        break
+    else:
+        maze[i][j] = 9
+        if j + 1 < 10 and maze[i][j + 1] != 1:
+            j += 1
+        elif j + 1 < 10 and maze[i][j + 1] == 1:
+            if i + 1 < 10 and maze[i + 1][j] != 1:
+                i += 1
+            else:
+                break
+        else:
+            None
+
+for i in range(10):
+    for j in range(10):
+        print(maze[i][j], end=" ")
+    print(" ")
+
+
