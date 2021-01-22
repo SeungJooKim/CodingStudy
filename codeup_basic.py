@@ -389,4 +389,81 @@ for i in range(10):
         print(maze[i][j], end=" ")
     print(" ")
 
+# 1205
+oper = ['+', '-', '/', '*', '**']
+n1, n2 = input().split()
+data = [eval(n1 + oper[i] + n2) for i in range(len(oper))]
+for i in range(len(oper)):
+    data.append(eval(n2 + oper[i] + n1))
+print("%f\n" % (max(data)))
+
+# 1226
+lotto = list(map(int, input().split()))
+num = list(map(int, input().split()))
+bonusnum = lotto[6]
+bonusmatch = False
+del lotto[6]
+matchnum = 0
+lotto.sort()
+num.sort()
+
+for lottonum in lotto:
+    for inputnum in num:
+        if (lottonum == inputnum):
+            matchnum += 1
+
+if (matchnum == 6):
+    print("1등 \n")
+elif (matchnum == 5):
+    for i in inputnum:
+        if (inputnum == bonusnum):
+            bonusmatch = True
+            print("2등 \n")
+            break
+        else:
+            bonusmatch = False
+
+    if bonusmatch == False:
+        print("3등\n")
+
+elif (matchnum == 4):
+    print("4등\n")
+elif (matchnum == 3):
+    print("3등 \n")
+else:
+    print("no")
+
+# 1228
+height, weight = map(float, input().split())
+avgweight = (height - 100) * 0.9
+biman = (weight - avgweight) * 100 / avgweight
+
+if biman > 20:
+    print("비만\n")
+elif biman > 10:
+    print("과체중 \n")
+else:
+    print("정상\n")
+
+# 1231
+exp = input()
+num1 = 0
+num2 = 0
+cal = []
+
+for i in range(len(exp)):
+    if (exp[i] == '+' or exp[i] == '-' or exp[i] == '/' or exp[i] == '*'):
+        num1 = int(exp[0:i])
+        num2 = int(exp[i + 1:len(exp)])
+        cal = exp[i]
+        if (exp[i] == '+'):
+            result = num1 + num2
+        elif (exp[i] == '-'):
+            result = num1 - num2
+        elif (exp[i] == '*'):
+            result = num1 * num2
+        else:
+            result = num1 / num2
+print(result)
+
 

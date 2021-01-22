@@ -105,3 +105,31 @@ print(result)
 n,m,k=map(int,input().split())
 print(n,m,k)
 print(type(n))
+
+#Counter
+from collections import Counter
+#most_common은 데이터 개수가 많은 순서대로 정렬
+a= Counter('hello world').most_common()
+print(a)
+
+from collections import Counter
+counter=Counter(['red','blue','red','green','blue','blue'])
+print(counter['green'])
+print(dict(counter))
+
+#내장함수
+#sum
+result = sum([1,2,3,4,5])
+print(result)
+
+#min,max
+min_result = min (7,3,5,2)
+max_result = max(7,3,5,2)
+print(min_result,max_result)
+
+#eval
+#매개변수로 받은 expression (=식)을 문자열로 받아서, 실행하는 함수
+#expression은 파이썬에서 실행 가능한 문자열이 들어와야 함
+
+result=eval("(3+5)*7")
+print(result)
