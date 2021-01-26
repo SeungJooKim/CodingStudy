@@ -573,7 +573,7 @@ if len(yak)==2:
 else:
     print("not prime")
 
-#1675
+#1675 문자 
 code=range(ord('a'),ord('z')+1,1)
 encode=dict()
 for i in range(0,26,1):
@@ -586,7 +586,7 @@ for i in strstr:
     else:
         print(i,end="")
 
-#1420
+#1420 등수 출력
 
 n = int(input())
 record ={}# dict
