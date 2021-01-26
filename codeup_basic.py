@@ -467,3 +467,133 @@ for i in range(len(exp)):
 print(result)
 
 
+#1253
+
+a,b = input().split()
+a= int(a)
+b=int(b)
+
+if(a>b):
+   for i in range(b,a+1):
+     print(i,end='')
+else:
+  for i in range(a,b+1):
+     print(i, end ='')
+
+
+#1255
+a, b = input().split()
+a= float(a)
+b=float(b)
+
+while(a<=b):
+  print(round(a,2))
+  a+=0.01
+
+
+
+#1283
+a = int(input())
+b=int(input())
+
+changes = list(map(int, input().split()))
+result = a
+
+for change in changes:
+  if change < 0 :
+    result = result -(result*(change * -1/100))
+  else:
+    result= result + (result * (change / 100))
+
+print(round(result -a))
+
+if(result-a) ==0:
+  print('same')
+elif(result -a >0):
+  print('good')
+else :
+  print('bad')
+
+
+
+#1284
+import math
+
+n = int(input())
+a = []
+index = 0
+sq = int(math.sqrt(float(n)))
+print(sq)
+
+for i in range(0, 30):
+    a.append(0)
+
+for i in range(2, sq+1):
+    while n % i == 0:
+        n /= i
+        a[index] = i
+        index += 1
+
+if n != 1:
+    a[index] = n
+    index += 1
+if index == 2:
+    print(int(a[0]), int(a[1]))
+else:
+    print('wrong number')
+
+
+#1273 약수 구하기
+
+N = int(input())
+yak = []
+# 루트? 1 2 3 4 6 12  12의 루트는 3.xxx
+for i in range(1, math.trunc(math.sqrt(N)) + 1, 1):  # a<root<b a+1 // 1,2,3
+    if N % i == 0:
+        yak.append(i)
+        yak.append(N //i)
+
+yak = list(set(yak))  # 중복제거위해
+yak.sort()
+for i in yak:
+    print(i, end=" ")
+
+
+#1274 : 소수판별 알고리즘
+import math
+N = int(input())
+yak = []
+for i in range(1, math.trunc(math.sqrt(N)) + 1, 1):  # a<root<b a+1
+    if N % i == 0:
+        yak.append(i)
+        yak.append(N //i)
+yak=list(set(yak))
+if len(yak)==2:
+    print("prime")
+else:
+    print("not prime")
+
+#1675
+code=range(ord('a'),ord('z')+1,1)
+encode=dict()
+for i in range(0,26,1):
+    encode[chr(code[i-3])]=chr(code[i])
+strstr=input()
+
+for i in strstr:
+    if i!=' ':
+        print(encode[i],end="")
+    else:
+        print(i,end="")
+
+#1420
+
+n = int(input())
+record ={}# dict
+
+for i in range(0,n):
+  name, score = input().split()
+  record[name]= int(score)
+
+record =sorted(record.items(),reverse= True)
+print(record[2][0])
