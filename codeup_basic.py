@@ -597,3 +597,50 @@ for i in range(0,n):
 
 record =sorted(record.items(),reverse= True)
 print(record[2][0])
+
+
+#1461
+n = int(input())
+#baeyal = [[0 for col in range(n)] for row in range(n)]
+baeyal=[[0]*n for i in range(n)]
+ipyak=n
+
+for i in range(n):
+  ipyak = n*(i+1)
+  for j in range(n):
+    baeyal[i][j]= ipyak
+    ipyak-=1
+  
+for i in range(n):
+  for j in range(n):
+    print(baeyal[i][j],end='')
+  print('')
+
+#1461
+n=int(input())
+for j in range(0, n*n, n):
+    for i in range(n,0,-1):
+        print("%d "%(i+j),end='')
+    print()
+
+n= int(input())
+
+for i in range(1,n+1):
+  for j in range(0,n):
+    print(i*n-j,end='')
+  print()
+
+
+#1463 
+n = int(input())
+baeyal = [[0]*n for i in range(n)]
+for i in range(n):
+ ipyak=n*(i+1)
+ for j in range(n):
+  baeyal[j][i]=ipyak
+  ipyak=ipyak-1
+
+for i in range(n):
+  for j in range(n):
+    print("%d " %baeyal[i][j] , end ='')
+  print()
