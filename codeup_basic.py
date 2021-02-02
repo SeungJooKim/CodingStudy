@@ -644,3 +644,146 @@ for i in range(n):
   for j in range(n):
     print("%d " %baeyal[i][j] , end ='')
   print()
+
+
+#1484
+n ,m = map(int,input().split())
+row=n
+col=m
+baeyal = [[0]*m for row in range(n)]
+check =0
+cnt =0 
+while n >0 and  m>0 :
+  for i in range(check,m+check): #열변경
+    cnt+=1
+    baeyal[check][i]=cnt
+  for i in range(check+1,check+n):
+    cnt+=1
+    baeyal[i][check+m-1]=cnt
+  
+  for i in range(check+m-2, check,-1):
+    cnt=cnt+1
+    baeyal[check+n-1][i]=cnt  
+  
+  for i in range(check+n-1,check,-1):
+     cnt=cnt+1
+     baeyal[i][check]=cnt
+  
+  check+=1
+  m-=2
+  n-=2
+
+for i in range(row):
+  for j in range(col):
+    print("%d "%baeyal[i][j],end='')
+  print()
+  
+
+
+  #1484= snail
+n,m=map(int,input().split())
+dal=[[0]*m for _ in range(n)]
+curi,curj=1,1
+move=[(0,1),(1,0),(0,-1),(-1,0)]
+num=2
+mi=0
+dal[0][0]=1
+while True:
+    if num>n*m:
+        break
+    nx=curi+move[mi][0]
+    ny=curj+move[mi][1]
+    if nx>n or ny>m or nx<1 or ny<1:
+        mi=(mi+1)%4
+    else:
+        if dal[nx-1][ny-1]==0:
+            curi=nx
+            curj=ny
+            dal[curi-1][curj-1]=num
+            num+=1
+            #print(curi,curj,num)
+        else:
+            mi=(mi+1)%4
+
+for i in range(0,n,1):
+    for j in range(0,m,1):
+        print("%d "%dal[i][j],end='')
+    print()
+
+
+#버블정렬
+#평균, 최상, 최악 모두 O(n제곱)
+#입력자료가 역순으로 되어 있으면 최악의 경우 ( swap에서 발생하는 연산이 더해짐)
+#입력자료가 오름차순으로 되어 있으면 최상의 경우 (swap 불 필요)
+
+def bubble_sort(arr):
+ for i in range(len(arr)-1,0,-1): #n-1부터 시작해서 0까지 -1씩 감소
+ #리스트가 4 라고 하면 3,2,1
+   swapped=False
+   for j in range(i): # 똑같이 뒤에 가장 큰 수! 정렬!
+      if arr[j]>arr[j+1]:
+        arr[j],arr[j+1]=arr[j+1],arr[j]
+        swapped=True
+   if not swapped:
+            break
+
+n = int(input())
+arr=[]
+for i in range(n):
+  num=int(input())
+  arr.append(num)
+
+bubble_sort(arr)
+
+for i in range(len(arr)):
+  print(arr[i])
+
+
+n = int(input())
+arr=[]
+for i in range(n):
+  num=int(input())
+  arr.append(num)
+
+
+
+#작은 거 부터 확정 짓는 방식
+
+def bubble_sort_s(arr):
+  for i in range(0,len(arr),1):#정렬된 것의 개수 i
+    #print(arr,end='')
+    swapped=False
+    for j in range(len(arr)-1,i,-1): # 비교할 대상 j,j-1
+      if arr[j] < arr[j-1]:
+       arr[j],arr[j-1]=arr[j-1],arr[j]
+       swapped=True
+    if not swapped:
+            break
+
+
+bubble_sort_s(arr)
+
+for i in range(len(arr)):
+  print(arr[i])
+
+
+
+#선택정렬
+
+N=int(input())
+lista=[]
+for i in range(N):
+    lista.append(int(input()))
+
+point=0
+mini=0
+while point<len(lista):
+    mini=point
+    for i in range(point,len(lista),1):
+      if lista[mini]>lista[i]:
+            mini=i
+    lista[point],lista[mini]=lista[mini],lista[point]
+    point+=1
+print(lista)
+
+#4 3 2 1 5
