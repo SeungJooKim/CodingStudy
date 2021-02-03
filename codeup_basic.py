@@ -787,3 +787,70 @@ while point<len(lista):
 print(lista)
 
 #4 3 2 1 5
+
+
+#삽입정렬
+def insert_sort(arr):
+  for i in range(0,len(arr),1):
+    for j in range(i,0,-1):
+      if arr[j] < arr[j-1]:
+         arr[j],arr[j-1] = arr[j-1],arr[j]
+      else:
+         break
+    
+n = int(input())
+arr=[]
+for i in range(n):
+ a = int(input())
+ arr.append(a)
+
+insert_sort(arr)
+for i in range(n):
+  print(arr[i])
+
+
+
+#3011 버블 정렬 단계 구하기
+N= int(input())
+lista=list(map(int,input().split()))
+
+for i in range(0,N):# 정렬된 개수
+    swapped=False
+    for j in range(0,N-1-i,1): 
+        if lista[j]>lista[j+1]:
+            lista[j],lista[j+1]=lista[j+1],lista[j]
+            swapped= True
+    if not swapped: # 선택정렬의 경우.자기 자신만의 위치를 따지기 때문에 break 하면 안됨.
+                    # 버블 정렬의 경우, 전체적으로 비교하면서 가장 큰 거를 끝으로 옮기기 때문에 swap 되지 않았다면 종료 하면 됨.
+      break
+print(i)
+
+
+
+#3011 버블 정렬 단계 구하기
+n = int(input())
+arr=[]
+arr=list(map(int,input().strip().split()))
+
+
+def bubble_sort(arr):
+ for i in range(len(arr)-1,0,-1): #n-1부터 시작해서 0까지 -1씩 감소
+ 
+ #리스트가 4 라고 하면 3,2,1
+   swapped=False
+   for j in range(i): # 똑같이 뒤에 가장 큰 수! 정렬! 0,1 ,2
+      if arr[j]>arr[j+1]: 
+        arr[j],arr[j+1]=arr[j+1],arr[j]
+        swapped=True
+   if not swapped:
+            break
+ return len(arr)-i #정렬은 이전 단계에서 된 거고 다음 단계에서 확인해 보니 정렬 완료 됨을 확인함
+ #return len(arr)-1-i할 경우
+ #i가 0부터 시작하지 않기 때문에 완전히 정렬되어 있는 경우 return 값이 0 이됨
+ #완벽 정렬 시 +1해주어야 됨.
+
+step= bubble_sort(arr) 
+if step != 1 : #정렬된 것은 이전 단계 이기 떄문 -1
+  print(step-1)
+else :
+  print(step)
