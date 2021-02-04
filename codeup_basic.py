@@ -854,3 +854,99 @@ if step != 1 : #정렬된 것은 이전 단계 이기 떄문 -1
   print(step-1)
 else :
   print(step)
+
+
+#3004 재정렬
+n= int(input())
+data = list(map(int,input().split()))
+
+def bin_search(data,start,end,k): #이진탐색
+  while start <=end :
+     mid = (start+end)//2
+     if data[mid] ==k:
+       return mid
+     elif data[mid] < k :
+       start=mid+1
+     else :
+       end = mid -1
+
+def resort(data) :
+   index_mem = ""
+   sorted_data = sorted(data)
+   for i in data:
+     index_mem += str(bin_search(sorted_data,0,len(data)-1,i))+" "
+   return index_mem
+
+print(resort(data))
+
+
+
+#4696 두 용액 
+n = int(input())
+data = list(map(int,input().split()))
+
+result = abs(data[0]+data[1])
+n1=data[0]
+n2=data[1]
+
+for i in range(n):
+  for j in range(i+1,n,1):
+    if abs(data[i]+data[j]) <= result :
+       result = abs(data[i]+data[j])
+       n1,n2 = data[i],data[j]
+    if result ==0:
+       break
+  if result ==0:
+      break
+
+if n1<n2 :
+ print(n1,n2)
+else:
+  print(n2,n1)
+
+
+#4696 두 용액  
+
+n = int(input())
+data = list(map(int,input().split()))
+data.sort() #-1 0 1
+com = 1000000000
+n1=1000000000
+n2=1000000000
+
+
+loc1 =0 
+ 
+for i in range(n):
+  if i>0 and abs(data[i]) < com :
+    com=abs(data[i])
+    loc1 =i
+
+#loc1이 절대값이 가장 작은 애를 가리켜 
+#loc2그 다음거!
+
+loc2=loc1+1
+
+if data[0]>=0:
+  print(data[0],data[1])
+
+elif data[n-1] <=0:
+  print(data[n-2],data[n-1])
+
+else:
+ while(1):
+   
+   if abs(data[loc1]+data[loc2]) < abs(n1+n2):
+    n1=data[loc1]
+    n2=data[loc2]
+   
+   if loc1 ==0 and loc2==n-1:
+    break
+    
+   if(data[loc1]+data[loc2]) < 0 and loc2 <n-1:
+     loc2+=1
+     
+   elif loc1>0:
+    loc1-=1
+
+print(n1,n2)
