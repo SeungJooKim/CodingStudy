@@ -271,7 +271,7 @@ while (a != 0):
     print(a)
     a = a - 1
 
-# 1097 십자뒤집기
+# 1097
 baduk = []
 for i in range(20):
     baduk.append([])
@@ -303,7 +303,7 @@ for i in range(1, 20):
         print(baduk[i][j], end='')
     print()
 
-# 1098 설탕뽑기
+# 1098
 h, w = map(int, input().split())
 sugar = [[0] * (w + 1) for i in range(h + 1)]
 # 좌표 입력이 1부터 시작이므로 +1
@@ -325,7 +325,7 @@ for i in range(1, h + 1):
         print(sugar[i][j], end='')
     print()
 
-# 1099 미로찾기
+# 1099
 maze = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
         [1, 0, 0, 1, 1, 1, 0, 0, 0, 1],
@@ -389,6 +389,21 @@ for i in range(10):
         print(maze[i][j], end=" ")
     print(" ")
 
+# 1204 순위 출력
+n = int(input())
+if n % 10 in (1, 2, 3):
+    if n // 10 == 1:
+        print(f"{n}th")
+    else:
+        if n % 10 == 1:
+            print(f"{n}st")
+        elif n % 10 == 2:
+            print(f"{n}nd")
+        else:
+            print(f"{n}rd")
+else:
+    print(f"{n}th")
+
 # 1205
 oper = ['+', '-', '/', '*', '**']
 n1, n2 = input().split()
@@ -396,6 +411,35 @@ data = [eval(n1 + oper[i] + n2) for i in range(len(oper))]
 for i in range(len(oper)):
     data.append(eval(n2 + oper[i] + n1))
 print("%f\n" % (max(data)))
+
+# 1205
+a, b = map(int, input().split())
+maxi = 0
+maxi = max([a + b, a - b, b - a, a * b, a / b, b / a, a ** b, b ** a])
+print("%.6f" % maxi)
+
+# 1210
+calori = [400, 340, 170, 100, 70]
+menu1, menu2 = map(int, input().split())
+sumi = calori[menu1 - 1] + calori[menu2 - 1]
+if sumi > 500:
+    print("angry")
+else:
+    print("no angry")
+
+# 1222
+time, one, two = map(int, input().split())
+while True:
+    if time >= 90:
+        break
+    one += 1
+    time += 5
+if one > two:
+    print("win")
+elif one == two:
+    print("same")
+else:
+    print("lose")
 
 # 1226
 lotto = list(map(int, input().split()))
@@ -466,57 +510,50 @@ for i in range(len(exp)):
             result = num1 / num2
 print(result)
 
-
-#1253
-
-a,b = input().split()
-a= int(a)
-b=int(b)
-
-if(a>b):
-   for i in range(b,a+1):
-     print(i,end='')
-else:
-  for i in range(a,b+1):
-     print(i, end ='')
-
-
-#1255
+# 1253
 a, b = input().split()
-a= float(a)
-b=float(b)
+a = int(a)
+b = int(b)
 
-while(a<=b):
-  print(round(a,2))
-  a+=0.01
+if (a > b):
+    for i in range(b, a + 1):
+        print(i, end='')
+else:
+    for i in range(a, b + 1):
+        print(i, end='')
 
+    # 1255
+a, b = input().split()
+a = float(a)
+b = float(b)
 
+while (a <= b):
+    print(round(a, 2))
+    a += 0.01
 
-#1283
+# 1283
 a = int(input())
-b=int(input())
+b = int(input())
 
 changes = list(map(int, input().split()))
 result = a
 
 for change in changes:
-  if change < 0 :
-    result = result -(result*(change * -1/100))
-  else:
-    result= result + (result * (change / 100))
+    if change < 0:
+        result = result - (result * (change * -1 / 100))
+    else:
+        result = result + (result * (change / 100))
 
-print(round(result -a))
+print(round(result - a))
 
-if(result-a) ==0:
-  print('same')
-elif(result -a >0):
-  print('good')
-else :
-  print('bad')
+if (result - a) == 0:
+    print('same')
+elif (result - a > 0):
+    print('good')
+else:
+    print('bad')
 
-
-
-#1284
+# 1284
 import math
 
 n = int(input())
@@ -528,7 +565,7 @@ print(sq)
 for i in range(0, 30):
     a.append(0)
 
-for i in range(2, sq+1):
+for i in range(2, sq + 1):
     while n % i == 0:
         n /= i
         a[index] = i
@@ -542,8 +579,7 @@ if index == 2:
 else:
     print('wrong number')
 
-
-#1273 약수 구하기
+# 1273 약수 구하기
 
 N = int(input())
 yak = []
@@ -551,402 +587,184 @@ yak = []
 for i in range(1, math.trunc(math.sqrt(N)) + 1, 1):  # a<root<b a+1 // 1,2,3
     if N % i == 0:
         yak.append(i)
-        yak.append(N //i)
+        yak.append(N // i)
 
 yak = list(set(yak))  # 중복제거위해
 yak.sort()
 for i in yak:
     print(i, end=" ")
 
-
-#1274 : 소수판별 알고리즘
+# 1274 : 소수판별 알고리즘
 import math
+
 N = int(input())
 yak = []
 for i in range(1, math.trunc(math.sqrt(N)) + 1, 1):  # a<root<b a+1
     if N % i == 0:
         yak.append(i)
-        yak.append(N //i)
-yak=list(set(yak))
-if len(yak)==2:
+        yak.append(N // i)
+yak = list(set(yak))
+if len(yak) == 2:
     print("prime")
 else:
     print("not prime")
 
-#1675 문자 
-code=range(ord('a'),ord('z')+1,1)
-encode=dict()
-for i in range(0,26,1):
-    encode[chr(code[i-3])]=chr(code[i])
-strstr=input()
+# 1382
+for j in range(1, 10, 1):
+    for i in range(2, 6, 1):
+        print("%2d x %2d = %2d" % (i, j, i * j), end='')
+        if i == 5:
+            print('', end='')
+        else:
+            print('\t', end='')
+    print()
+
+# 1368
+h, k, d = input().split()
+h = int(h)
+k = int(k)
+if d == 'L':
+    for i in range(h):
+        if i == h - 1:
+            print(' ' * i + '*' * k, end='')
+        else:
+            print(' ' * i + '*' * k)
+else:
+    for i in range(h):
+        if i == h - 1:
+            print(' ' * (k - i) + '*' * k + ' ' * i, end='')
+        else:
+            print(' ' * (k - i) + '*' * k + ' ' * i)
+
+# 1675
+code = range(ord('a'), ord('z') + 1, 1)
+encode = dict()
+for i in range(0, 26, 1):
+    encode[chr(code[i - 3])] = chr(code[i])
+strstr = input()
 
 for i in strstr:
-    if i!=' ':
-        print(encode[i],end="")
+    if i != ' ':
+        print(encode[i], end="")
     else:
-        print(i,end="")
+        print(i, end="")
 
-#1420 등수 출력
-
+# 1420
 n = int(input())
-record ={}# dict
+record = {}  # dict
 
-for i in range(0,n):
-  name, score = input().split()
-  record[name]= int(score)
+for i in range(0, n):
+    name, score = input().split()
+    record[name] = int(score)
 
-record =sorted(record.items(),reverse= True)
+record = sorted(record.items(), reverse=True)
 print(record[2][0])
 
-
-#1461
+# 1461
 n = int(input())
-#baeyal = [[0 for col in range(n)] for row in range(n)]
-baeyal=[[0]*n for i in range(n)]
-ipyak=n
+# baeyal = [[0 for col in range(n)] for row in range(n)]
+baeyal = [[0] * n for i in range(n)]
+ipyak = n
 
 for i in range(n):
-  ipyak = n*(i+1)
-  for j in range(n):
-    baeyal[i][j]= ipyak
-    ipyak-=1
-  
-for i in range(n):
-  for j in range(n):
-    print(baeyal[i][j],end='')
-  print('')
+    ipyak = n * (i + 1)
+    for j in range(n):
+        baeyal[i][j] = ipyak
+        ipyak -= 1
 
-#1461
-n=int(input())
-for j in range(0, n*n, n):
-    for i in range(n,0,-1):
-        print("%d "%(i+j),end='')
+for i in range(n):
+    for j in range(n):
+        print(baeyal[i][j], end='')
+    print('')
+
+# 1461
+n = int(input())
+for j in range(0, n * n, n):
+    for i in range(n, 0, -1):
+        print("%d " % (i + j), end='')
     print()
 
-n= int(input())
-
-for i in range(1,n+1):
-  for j in range(0,n):
-    print(i*n-j,end='')
-  print()
-
-
-#1463 
 n = int(input())
-baeyal = [[0]*n for i in range(n)]
+
+for i in range(1, n + 1):
+    for j in range(0, n):
+        print(i * n - j, end='')
+    print()
+
+# 1463
+n = int(input())
+baeyal = [[0] * n for i in range(n)]
 for i in range(n):
- ipyak=n*(i+1)
- for j in range(n):
-  baeyal[j][i]=ipyak
-  ipyak=ipyak-1
+    ipyak = n * (i + 1)
+    for j in range(n):
+        baeyal[j][i] = ipyak
+        ipyak = ipyak - 1
 
 for i in range(n):
-  for j in range(n):
-    print("%d " %baeyal[i][j] , end ='')
-  print()
+    for j in range(n):
+        print("%d " % baeyal[i][j], end='')
+    print()
 
+# 1484
+n, m = map(int, input().split())
+row = n
+col = m
+baeyal = [[0] * m for row in range(n)]
+check = 0
+cnt = 0
+while n > 0 and m > 0:
+    for i in range(check, m + check):  # 열변경
+        cnt += 1
+        baeyal[check][i] = cnt
+    for i in range(check + 1, check + n):
+        cnt += 1
+        baeyal[i][check + m - 1] = cnt
 
-#1484
-n ,m = map(int,input().split())
-row=n
-col=m
-baeyal = [[0]*m for row in range(n)]
-check =0
-cnt =0 
-while n >0 and  m>0 :
-  for i in range(check,m+check): #열변경
-    cnt+=1
-    baeyal[check][i]=cnt
-  for i in range(check+1,check+n):
-    cnt+=1
-    baeyal[i][check+m-1]=cnt
-  
-  for i in range(check+m-2, check,-1):
-    cnt=cnt+1
-    baeyal[check+n-1][i]=cnt  
-  
-  for i in range(check+n-1,check,-1):
-     cnt=cnt+1
-     baeyal[i][check]=cnt
-  
-  check+=1
-  m-=2
-  n-=2
+    for i in range(check + m - 2, check, -1):
+        cnt = cnt + 1
+        baeyal[check + n - 1][i] = cnt
+
+    for i in range(check + n - 1, check, -1):
+        cnt = cnt + 1
+        baeyal[i][check] = cnt
+
+    check += 1
+    m -= 2
+    n -= 2
 
 for i in range(row):
-  for j in range(col):
-    print("%d "%baeyal[i][j],end='')
-  print()
-  
+    for j in range(col):
+        print("%d " % baeyal[i][j], end='')
+    print()
 
-
-  #1484= snail
-n,m=map(int,input().split())
-dal=[[0]*m for _ in range(n)]
-curi,curj=1,1
-move=[(0,1),(1,0),(0,-1),(-1,0)]
-num=2
-mi=0
-dal[0][0]=1
+    # 1484= snail
+n, m = map(int, input().split())
+dal = [[0] * m for _ in range(n)]
+curi, curj = 1, 1
+move = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+num = 2
+mi = 0
+dal[0][0] = 1
 while True:
-    if num>n*m:
+    if num > n * m:
         break
-    nx=curi+move[mi][0]
-    ny=curj+move[mi][1]
-    if nx>n or ny>m or nx<1 or ny<1:
-        mi=(mi+1)%4
+    nx = curi + move[mi][0]
+    ny = curj + move[mi][1]
+    if nx > n or ny > m or nx < 1 or ny < 1:
+        mi = (mi + 1) % 4
     else:
-        if dal[nx-1][ny-1]==0:
-            curi=nx
-            curj=ny
-            dal[curi-1][curj-1]=num
-            num+=1
-            #print(curi,curj,num)
+        if dal[nx - 1][ny - 1] == 0:
+            curi = nx
+            curj = ny
+            dal[curi - 1][curj - 1] = num
+            num += 1
+            # print(curi,curj,num)
         else:
-            mi=(mi+1)%4
+            mi = (mi + 1) % 4
 
-for i in range(0,n,1):
-    for j in range(0,m,1):
-        print("%d "%dal[i][j],end='')
+for i in range(0, n, 1):
+    for j in range(0, m, 1):
+        print("%d " % dal[i][j], end='')
     print()
 
 
-#버블정렬
-#평균, 최상, 최악 모두 O(n제곱)
-#입력자료가 역순으로 되어 있으면 최악의 경우 ( swap에서 발생하는 연산이 더해짐)
-#입력자료가 오름차순으로 되어 있으면 최상의 경우 (swap 불 필요)
-
-def bubble_sort(arr):
- for i in range(len(arr)-1,0,-1): #n-1부터 시작해서 0까지 -1씩 감소
- #리스트가 4 라고 하면 3,2,1
-   swapped=False
-   for j in range(i): # 똑같이 뒤에 가장 큰 수! 정렬!
-      if arr[j]>arr[j+1]:
-        arr[j],arr[j+1]=arr[j+1],arr[j]
-        swapped=True
-   if not swapped:
-            break
-
-n = int(input())
-arr=[]
-for i in range(n):
-  num=int(input())
-  arr.append(num)
-
-bubble_sort(arr)
-
-for i in range(len(arr)):
-  print(arr[i])
-
-
-n = int(input())
-arr=[]
-for i in range(n):
-  num=int(input())
-  arr.append(num)
-
-
-
-#작은 거 부터 확정 짓는 방식
-
-def bubble_sort_s(arr):
-  for i in range(0,len(arr),1):#정렬된 것의 개수 i
-    #print(arr,end='')
-    swapped=False
-    for j in range(len(arr)-1,i,-1): # 비교할 대상 j,j-1
-      if arr[j] < arr[j-1]:
-       arr[j],arr[j-1]=arr[j-1],arr[j]
-       swapped=True
-    if not swapped:
-            break
-
-
-bubble_sort_s(arr)
-
-for i in range(len(arr)):
-  print(arr[i])
-
-
-
-#선택정렬
-
-N=int(input())
-lista=[]
-for i in range(N):
-    lista.append(int(input()))
-
-point=0
-mini=0
-while point<len(lista):
-    mini=point
-    for i in range(point,len(lista),1):
-      if lista[mini]>lista[i]:
-            mini=i
-    lista[point],lista[mini]=lista[mini],lista[point]
-    point+=1
-print(lista)
-
-#4 3 2 1 5
-
-
-#삽입정렬
-def insert_sort(arr):
-  for i in range(0,len(arr),1):
-    for j in range(i,0,-1):
-      if arr[j] < arr[j-1]:
-         arr[j],arr[j-1] = arr[j-1],arr[j]
-      else:
-         break
-    
-n = int(input())
-arr=[]
-for i in range(n):
- a = int(input())
- arr.append(a)
-
-insert_sort(arr)
-for i in range(n):
-  print(arr[i])
-
-
-
-#3011 버블 정렬 단계 구하기
-N= int(input())
-lista=list(map(int,input().split()))
-
-for i in range(0,N):# 정렬된 개수
-    swapped=False
-    for j in range(0,N-1-i,1): 
-        if lista[j]>lista[j+1]:
-            lista[j],lista[j+1]=lista[j+1],lista[j]
-            swapped= True
-    if not swapped: # 선택정렬의 경우.자기 자신만의 위치를 따지기 때문에 break 하면 안됨.
-                    # 버블 정렬의 경우, 전체적으로 비교하면서 가장 큰 거를 끝으로 옮기기 때문에 swap 되지 않았다면 종료 하면 됨.
-      break
-print(i)
-
-
-
-#3011 버블 정렬 단계 구하기
-n = int(input())
-arr=[]
-arr=list(map(int,input().strip().split()))
-
-
-def bubble_sort(arr):
- for i in range(len(arr)-1,0,-1): #n-1부터 시작해서 0까지 -1씩 감소
- 
- #리스트가 4 라고 하면 3,2,1
-   swapped=False
-   for j in range(i): # 똑같이 뒤에 가장 큰 수! 정렬! 0,1 ,2
-      if arr[j]>arr[j+1]: 
-        arr[j],arr[j+1]=arr[j+1],arr[j]
-        swapped=True
-   if not swapped:
-            break
- return len(arr)-i #정렬은 이전 단계에서 된 거고 다음 단계에서 확인해 보니 정렬 완료 됨을 확인함
- #return len(arr)-1-i할 경우
- #i가 0부터 시작하지 않기 때문에 완전히 정렬되어 있는 경우 return 값이 0 이됨
- #완벽 정렬 시 +1해주어야 됨.
-
-step= bubble_sort(arr) 
-if step != 1 : #정렬된 것은 이전 단계 이기 떄문 -1
-  print(step-1)
-else :
-  print(step)
-
-
-#3004 재정렬
-n= int(input())
-data = list(map(int,input().split()))
-
-def bin_search(data,start,end,k): #이진탐색
-  while start <=end :
-     mid = (start+end)//2
-     if data[mid] ==k:
-       return mid
-     elif data[mid] < k :
-       start=mid+1
-     else :
-       end = mid -1
-
-def resort(data) :
-   index_mem = ""
-   sorted_data = sorted(data)
-   for i in data:
-     index_mem += str(bin_search(sorted_data,0,len(data)-1,i))+" "
-   return index_mem
-
-print(resort(data))
-
-
-
-#4696 두 용액 
-n = int(input())
-data = list(map(int,input().split()))
-
-result = abs(data[0]+data[1])
-n1=data[0]
-n2=data[1]
-
-for i in range(n):
-  for j in range(i+1,n,1):
-    if abs(data[i]+data[j]) <= result :
-       result = abs(data[i]+data[j])
-       n1,n2 = data[i],data[j]
-    if result ==0:
-       break
-  if result ==0:
-      break
-
-if n1<n2 :
- print(n1,n2)
-else:
-  print(n2,n1)
-
-
-#4696 두 용액  
-
-n = int(input())
-data = list(map(int,input().split()))
-data.sort() #-1 0 1
-com = 1000000000
-n1=1000000000
-n2=1000000000
-
-
-loc1 =0 
- 
-for i in range(n):
-  if i>0 and abs(data[i]) < com :
-    com=abs(data[i])
-    loc1 =i
-
-#loc1이 절대값이 가장 작은 애를 가리켜 
-#loc2그 다음거!
-
-loc2=loc1+1
-
-if data[0]>=0:
-  print(data[0],data[1])
-
-elif data[n-1] <=0:
-  print(data[n-2],data[n-1])
-
-else:
- while(1):
-   
-   if abs(data[loc1]+data[loc2]) < abs(n1+n2):
-    n1=data[loc1]
-    n2=data[loc2]
-   
-   if loc1 ==0 and loc2==n-1:
-    break
-    
-   if(data[loc1]+data[loc2]) < 0 and loc2 <n-1:
-     loc2+=1
-     
-   elif loc1>0:
-    loc1-=1
-
-print(n1,n2)
