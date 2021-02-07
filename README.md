@@ -3,7 +3,7 @@
 
 # Reference 
  * **code-up** : <https://codeup.kr/>
- * **이것이 취업을 위한 코딩 테스트다 with 파이썬** : 
+ * **이것이 취업을 위한 코딩 테스트다 with 파이썬** with Python (나동빈 저, 한빛미디어) : 
  <br/> <br/>![python](./image/python.PNG)
  
  # Folder/Chapter
